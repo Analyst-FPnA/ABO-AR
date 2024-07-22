@@ -406,48 +406,7 @@ if uploaded_file is not None:
                 df = df[df['Transaction Type'] == 'Payment']
             
                 return df
-            
-            st.write('QRIS SHOPEE *,')
-            # Path to the folder containing the subfolders
-            main_folder = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS A (Separator ,)/'
-            
-            # Get the list of subfolders within the main folder
-            subfolders = [folder for folder in os.listdir(main_folder) if os.path.isdir(os.path.join(main_folder, folder))]
-            
-            # List to store concatenated dataframes
-            combined_dataframes = []
-            
-            # Iterate over each subfolder
-            for subfolder in subfolders:
-                folder_path = os.path.join(main_folder, subfolder)
-                # Concatenate CSV files within each subfolder after preprocessing
-                files = [file for file in os.listdir(folder_path) if file.endswith('.csv')]
-                if files:
-                    df_subfolder = pd.concat([preprocess_dataframe(pd.read_csv(os.path.join(folder_path, file))) for file in files])
-                    # Add a new column for the folder name
-                    df_subfolder['Folder'] = subfolder
-                    combined_dataframes.append(df_subfolder)
-                else:
-                    print(f"File in subfolder: {subfolder} does not exist. Please double check")
-            
-            # Check if there are any dataframes to concatenate
-            if combined_dataframes:
-                # Concatenate dataframes from all subfolders
-                final_df = pd.concat(combined_dataframes)
-            
-                # Format Time
-                final_df['Update Time'] = pd.to_datetime(final_df['Update Time'], format='%Y-%m-%d %H:%M:%S')
-                final_df['DATE'] = final_df['Update Time'].dt.strftime('%d/%m/%Y')
-                final_df['TIME'] = final_df['Update Time'].dt.time
-            
-                # Save the final dataframe to a CSV file
-                output_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_A.csv'
-                final_df.to_csv(output_path, index=False)
-            
-                st.write("File QRIS SHOPEE *, Concatenated")
-            else:
-                st.write("No dataframes to concatenate.")
-            
+                       
             
             st.write('QRIS SHOPEE *;')
             # Define the base folder path
@@ -530,7 +489,7 @@ if uploaded_file is not None:
             # Only proceed if the DataFrame is not empty
             if not df.empty:
                 # Export DataFrame to CSV
-                output_file_path = f"{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_C.csv"
+                output_file_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_C.csv'
                 df.to_csv(output_file_path, index=False)
                 st.write("File QRIS SHOPEE *; Concatenated")
             else:
@@ -538,8 +497,8 @@ if uploaded_file is not None:
             
             st.write('QRIS SHOPEE *,')
             # Define the folder path
-            folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS B (Separator ;)'
-            output_path = f'{tmpdirname}/{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_B.csv'
+            folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS A (Separator ,)/'
+            output_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_A.csv'
             
             # Function to add the "Folder" column to a CSV file
             def add_folder_column(csv_file_path, folder_name):

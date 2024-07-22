@@ -42,7 +42,7 @@ def list_files_in_directory(dir_path):
             st.write(f'  - {file_name}')
 
 # URL file model .pkl di GitHub (gunakan URL raw dari file .pkl di GitHub)
-url = 'https://raw.githubusercontent.com/ferifirmansah05/ads_mvn/main/database provinsi.xlsx'
+url = 'https://raw.githubusercontent.com/ferifirmansah05/ABO/main/database provinsi.xlsx'
 
 # Path untuk menyimpan file yang diunduh
 save_path = 'database provinsi.xlsx'

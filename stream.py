@@ -451,7 +451,7 @@ if uploaded_file is not None:
             
             st.write('QRIS SHOPEE *;')
             # Define the base folder path
-            base_folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS B (Separator ;)'
+            base_folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS C (Normal)'
             
             # Function to remove separator "," from a CSV file and export to a new file
             def remove_separator_from_csv(file_path):
@@ -482,7 +482,7 @@ if uploaded_file is not None:
                     print(f"File in subfolder: {subfolder} does not exist. Please double check")
     
             
-            base_folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS B (Separator ;)'
+            base_folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS C (Normal)'
             
             # Function to recursively find all CSV files in a directory and its subdirectories
             def find_csv_files(directory):
@@ -530,16 +530,16 @@ if uploaded_file is not None:
             # Only proceed if the DataFrame is not empty
             if not df.empty:
                 # Export DataFrame to CSV
-                output_file_path = f"{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_B.csv"
+                output_file_path = f"{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_C.csv"
                 df.to_csv(output_file_path, index=False)
                 st.write("File QRIS SHOPEE *; Concatenated")
             else:
                 st.write("No dafaframes to concatenate.")
             
-            st.write('QRIS SHOPEE')
+            st.write('QRIS SHOPEE *,')
             # Define the folder path
-            folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS C (Normal)'
-            output_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_C.csv'
+            folder_path = f'{tmpdirname}/_bahan/QRIS_SHOPEE/QRIS B (Separator ;)'
+            output_path = f'{tmpdirname}/{tmpdirname}/_bahan/QRIS_SHOPEE/merge/merge_QRIS S_B.csv'
             
             # Function to add the "Folder" column to a CSV file
             def add_folder_column(csv_file_path, folder_name):

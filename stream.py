@@ -29,21 +29,13 @@ def add_background_watermark():
         position: relative;
     }
     .watermark-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         font-size: 150px; /* Ubah ukuran font sesuai kebutuhan */
-        color: rgba(255, 255, 255, 0.3); /* Sesuaikan transparansi dan warna */
-        z-index: -1;
-        white-space: nowrap;
-        pointer-events: none;
-        user-select: none;
+
     }
     </style>
-    <div class="watermark-text">FPnA</div>
     """
     st.markdown(background_style, unsafe_allow_html=True)
+    
 
 # Menambahkan watermark sebagai latar belakang ke aplikasi Streamlit
 add_background_watermark()

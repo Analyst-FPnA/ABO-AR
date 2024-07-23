@@ -26,18 +26,18 @@ def add_watermark():
     .watermark {
         position: fixed;
         bottom: 10px;
-        right: 10px;
+        left: 10px;
         opacity: 0.5;
         font-size: 100px;
         color: grey;
     }
     </style>
-    <div class="watermark">FPnA/div>
+    <div class="watermark">FPnA</div>
     """
     st.markdown(watermark_style, unsafe_allow_html=True)
 
-# Menambahkan watermark ke aplikasi Streamlit
-add_watermark()
+# Menambahkan watermark sebagai latar belakang ke aplikasi Streamlit
+add_background_watermark()
 
 def download_file_from_github(url, save_path):
     response = requests.get(url)

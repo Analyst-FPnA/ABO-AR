@@ -37,7 +37,7 @@ def add_watermark():
     st.markdown(watermark_style, unsafe_allow_html=True)
 
 # Menambahkan watermark sebagai latar belakang ke aplikasi Streamlit
-add_watermark():
+add_watermark()
 
 def download_file_from_github(url, save_path):
     response = requests.get(url)

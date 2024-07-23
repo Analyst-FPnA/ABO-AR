@@ -32,7 +32,7 @@ def add_watermark():
         color: grey;
     }
     </style>
-    <div class="watermark">Your Watermark Here</div>
+    <div class="watermark">#FPnA</div>
     """
     st.markdown(watermark_style, unsafe_allow_html=True)
 add_watermark()

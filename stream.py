@@ -20,6 +20,22 @@ import shutil
 import subprocess
 
 
+def add_watermark():
+    watermark_style = """
+    <style>
+    .watermark {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        opacity: 0.5;
+        font-size: 20px;
+        color: grey;
+    }
+    </style>
+    <div class="watermark">Your Watermark Here</div>
+    """
+    st.markdown(watermark_style, unsafe_allow_html=True)
+add_watermark()
 def download_file_from_github(url, save_path):
     response = requests.get(url)
     if response.status_code == 200:

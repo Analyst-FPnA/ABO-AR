@@ -24,24 +24,14 @@ def add_background_watermark():
     background_style = """
     <style>
     .stApp {
-        position: relative;
-    }
-    .background-watermark {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 100px; /* Ubah ukuran font sesuai kebutuhan */
-        color: rgba(200, 200, 200, 0.5);
-        z-index: -1;
-        white-space: nowrap;
-        pointer-events: none;
-        user-select: none;
+        background: url('https://via.placeholder.com/2920x1580.png?text=FPnA') no-repeat center center fixed;
+        background-size: cover;
     }
     </style>
-    <div class="background-watermark">FPnA</div>
     """
     st.markdown(background_style, unsafe_allow_html=True)
+
+# Menambahkan watermark sebagai latar belakang ke aplikasi Streamlit
 add_background_watermark()
 
 def download_file_from_github(url, save_path):

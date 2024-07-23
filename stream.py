@@ -20,22 +20,19 @@ import shutil
 import subprocess
 
 
-def add_watermark():
-    watermark_style = """
+def add_background_watermark():
+    background_style = """
     <style>
-    .watermark {
-        position: fixed;
-        bottom: 10px;
-        left: 10px;
-        opacity: 0.5;
-        font-size: 20px;
-        color: grey;
+    .stApp {
+        background: url('https://via.placeholder.com/1920x1080.png?text=#FPnA') no-repeat center center fixed;
+        background-size: cover;
     }
     </style>
-    <div class="watermark">#FPnA</div>
     """
-    st.markdown(watermark_style, unsafe_allow_html=True)
-add_watermark()
+    st.markdown(background_style, unsafe_allow_html=True)
+
+# Menambahkan watermark sebagai latar belakang ke aplikasi Streamlit
+add_background_watermark()
 def download_file_from_github(url, save_path):
     response = requests.get(url)
     if response.status_code == 200:

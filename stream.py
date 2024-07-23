@@ -23,24 +23,16 @@ import subprocess
 def add_watermark():
     watermark_style = """
     <style>
-    .stApp {
-        position: relative;
-    }
     .watermark {
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0.2; /* Transparansi watermark */
-        font-size: 150px; /* Ukuran font watermark */
+        bottom: 10px;
+        right: 10px;
+        opacity: 0.5;
+        font-size: 100px;
         color: grey;
-        z-index: -1; /* Pastikan watermark berada di belakang konten */
-        white-space: nowrap;
-        pointer-events: none;
-        user-select: none;
     }
     </style>
-    <div class="watermark">Your Watermark Here</div>
+    <div class="watermark">FPnA/div>
     """
     st.markdown(watermark_style, unsafe_allow_html=True)
 

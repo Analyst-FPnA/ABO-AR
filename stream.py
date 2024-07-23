@@ -24,7 +24,7 @@ def add_watermark():
     watermark_style = """
     <style>
     .watermark {
-        position: fixed;
+        position: center;
         bottom: 10px;
         left: 10px;
         opacity: 0.5;

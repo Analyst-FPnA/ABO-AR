@@ -27,12 +27,12 @@ def add_background_watermark():
         position: relative;
     }
     .background-watermark {
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 150px; /* Ubah ukuran font sesuai kebutuhan */
-        color: rgba(200, 200, 200, 0.2); /* Sesuaikan transparansi */
+        font-size: 100px; /* Ubah ukuran font sesuai kebutuhan */
+        color: rgba(200, 200, 200, 0.5); /* Sesuaikan transparansi */
         z-index: -1;
         white-space: nowrap;
         pointer-events: none;

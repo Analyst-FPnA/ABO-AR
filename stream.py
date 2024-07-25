@@ -247,7 +247,7 @@ if uploaded_file is not None:
                 concatenated_df = pd.concat(dfs, ignore_index=True)
             
                 # Lookup
-                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GOJEK.csv')
+                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GOJEK.csv',sep=';')
             
                 for subfolder in subfolders:
                     df = concatenated_df[concatenated_df['Outlet name'].str.contains(storename[storename['CAB']==subfolder]['Outlet name'].str.split().values[0][-1])]
@@ -388,7 +388,7 @@ if uploaded_file is not None:
                 merged_df = pd.concat(dataframes, ignore_index=True)
             
                 # Lookup
-                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GRAB.csv')
+                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GRAB.csv',sep=';')
                 merged_df = pd.merge(merged_df, storename, how='left', on='Store Name').fillna('')
             
                 # Save the merged DataFrame to a CSV file without row index

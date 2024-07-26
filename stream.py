@@ -840,6 +840,7 @@ if uploaded_file is not None:
                     df_shopee['Order Status'] = 'Settled'
                 #Rename columns to match the database schema
                 df_shopee['Order Status'].fillna('Settled')
+                st.write(df_shopee)
                 loc_shopee   =   df_shopee.loc[:,['Order Pick up ID',
                                                       'Folder',
                                                       'Order Complete/Cancel Time',

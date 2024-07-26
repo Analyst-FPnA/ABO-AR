@@ -1907,7 +1907,7 @@ if uploaded_file is not None:
             time_now = dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             st.markdown('### Output')
             def to_excel(df):
-                output = BytesIO()
+                output = io.BytesIO()
                 with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                     df.to_excel(writer, index=False, sheet_name='Sheet1')
             

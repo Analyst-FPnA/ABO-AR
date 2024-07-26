@@ -247,7 +247,7 @@ if uploaded_file is not None:
                 concatenated_df = pd.concat(dfs, ignore_index=True)
             
                 # Lookup
-                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GOJEK.csv',sep=';')
+                storename = pd.read_excel(f'{tmpdirname}/_bahan/bahan/Store Name GOJEK.xlsx')
             
                 for subfolder in subfolders:
                     df = concatenated_df[concatenated_df['Outlet name'].str.contains(storename[storename['CAB']==subfolder]['Outlet name'].str.split().values[0][-1])]
@@ -347,7 +347,7 @@ if uploaded_file is not None:
                 concatenated_df = pd.concat(dfs, ignore_index=True)
             
                 # Lookup
-                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GRAB.csv')
+                storename = pd.read_excel(f'{tmpdirname}/_bahan/bahan/Store Name GRAB.xlsx')
                 concatenated_df = pd.merge(concatenated_df, storename, how='left', on='Store Name').fillna('')
                 concatenated_df = concatenated_df[concatenated_df['CAB'] != '']
                 # Export the concatenated dataframe to CSV in the specified path
@@ -388,7 +388,7 @@ if uploaded_file is not None:
                 merged_df = pd.concat(dataframes, ignore_index=True)
             
                 # Lookup
-                storename = pd.read_csv(f'{tmpdirname}/_bahan/bahan/Store Name GRAB.csv',sep=';')
+                storename = pd.read_excel(f'{tmpdirname}/_bahan/bahan/Store Name GRAB.xlsx')
                 merged_df = pd.merge(merged_df, storename, how='left', on='Store Name').fillna('')
             
                 # Save the merged DataFrame to a CSV file without row index
@@ -1908,9 +1908,9 @@ if uploaded_file is not None:
             st.markdown('### Output')
             zip_buffer = io.BytesIO()
             with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
-                zip_file.writestr(f'INVOICE_{time_now}.csv', invoice_final.to_csv(index=False))
-                zip_file.writestr(f'WEB_{time_now}.csv', web_final.to_csv(index=False))
-                zip_file.writestr(f'BREAKDOWN_{time_now}.csv', final_df.to_csv(index=False))
+                zip_file.writestr(f'INVOICE_{time_now}.xlsx', invoice_final.to_excel(index=False))
+                zip_file.writestr(f'WEB_{time_now}.xlsx', web_final.to_excel(index=False))
+                zip_file.writestr(f'BREAKDOWN_{time_now}.xlsx', final_df.to_excel(index=False))
             
             # Pastikan buffer ZIP berada di awal
             zip_buffer.seek(0)

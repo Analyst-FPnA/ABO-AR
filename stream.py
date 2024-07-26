@@ -279,9 +279,6 @@ if uploaded_file is not None:
                         df = pd.concat(dfs)
                         # Add a new column for the folder name
                         df['Folder'] = subfolder
-                        if 'Order Status' not in df.columns:
-                            df['Order Status'] = 'Settled'
-                        df['Order Status'] = df['Order Status'].fillna('Settled')
                         combined_dataframes.append(df)
                     else:
                         print(f"File in subfolder: {subfolder} does not exist. Please double check")

@@ -835,12 +835,12 @@ if uploaded_file is not None:
             st.write('SHOPEE FOOD')
             if os.path.exists(shopee_path):
                 # Read data merge Shopee Food
-                df_shopee = pd.read_csv(shopee_path).fillna('')
+                df_shopee = pd.read_csv(shopee_path)
                 if 'Order Status' not in df_shopee.columns:
                     df_shopee['Order Status'] = 'Settled'
                 #Rename columns to match the database schema
-                df_shopee['Order Status'].fillna('Settled')
-                st.write(df_shopee)
+                df_shopee['Order Status'] = df_shopee['Order Status'].fillna('Settled')
+                df_shopee = df_shopee.fillna('')
                 loc_shopee   =   df_shopee.loc[:,['Order Pick up ID',
                                                       'Folder',
                                                       'Order Complete/Cancel Time',

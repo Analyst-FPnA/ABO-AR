@@ -176,10 +176,12 @@ if uploaded_file is not None:
                 # Check if there are CSV files in the subfolder
                 if files:
                     # Concatenate CSV files within each subfolder
-                    df = pd.concat([pd.read_csv(file) for file in files])
-                    # Add a new column for the folder name
-                    df['Folder'] = subfolder
-                    combined_dataframes.append(df)
+                    for file in files:
+                        df = pd.read_csv(file)
+                        df = df.rename(columns={'Gross Sales':'Gross Amount'})
+                        # Add a new column for the folder name
+                        df['Folder'] = subfolder
+                        combined_dataframes.append(df)
                 else:
                     print(f"File in subfolder: {subfolder} does not exist. Please double check")
         
@@ -204,8 +206,12 @@ if uploaded_file is not None:
             for subfolder in subfolders:
                 # Glob pattern to get all CSV files in the subfolder
                 files = glob(os.path.join(main_folder, subfolder, '*.csv'))
+                dfs = []
                 # Concatenate CSV files within each subfolder
-                dfs = [pd.read_csv(file) for file in files]
+                for file in files:
+                    df = pd.read_csv(file)
+                    df = df.rename(columns={'Gross Sales':'Gross Amount'})
+                    dfs.append(df)  
                 if dfs:
                     df = pd.concat(dfs)
                     # Add a new column for the folder name
